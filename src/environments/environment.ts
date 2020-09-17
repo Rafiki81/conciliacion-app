@@ -3,8 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  urlBase: 'http://10.250.7.1:8080/',
+  // urlBase: 'http://localhost:8080/',
   production: false
+
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
