@@ -4,7 +4,7 @@ export class BankingOperation {
   account: string;
   amount: number;
   date: Date;
-  isReconciliated: boolean;
+  reconciliated: boolean;
 
   constructor(
     id?: number,
@@ -12,7 +12,7 @@ export class BankingOperation {
     account?: string,
     amount?: number,
     date?: Date,
-    isReconciliated?: boolean
+    reconciliated?: boolean
 
   ) {
     this.id = id;
@@ -20,6 +20,6 @@ export class BankingOperation {
     this.account = account;
     this.amount = amount;
     this.date = date;
-    this.isReconciliated = isReconciliated;
+    this.reconciliated = reconciliated;
   }
 }

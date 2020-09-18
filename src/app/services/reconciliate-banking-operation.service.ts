@@ -16,6 +16,6 @@ export class ReconciliateBankingOperationService {
   reconciliateBankingOperations(bankingOperations: BankingOperation[]): Observable<BankingOperation>{
 
     console.log(bankingOperations);
-    return  this.http.post<BankingOperation>(`${urlBase}pedidos/reconciliate`, bankingOperations);
+    return  this.http.post<BankingOperation>(`${urlBase}bankingOperations/reconciliations`, bankingOperations);
   }
 }

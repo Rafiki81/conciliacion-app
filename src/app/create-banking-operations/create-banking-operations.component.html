@@ -1,1 +1,59 @@
-<p>create-banking-operations works!</p>
+<form [formGroup]="bankingOperationsForm">
+
+  <h1>Operacion a dar de Alta</h1>
+  <table>
+      <tr>
+        <th>Cliente</th>
+        <td><input type="string" formControlName="customerId"></td>
+        <td style="color:red;">
+          <span *ngIf="bankingOperationsForm.get('customerId').errors?.required">Se requiere un Cliente</span>
+        </td>
+      </tr>
+
+      <tr>
+        <th>Cuenta</th>
+        <td><input type="text" formControlName="account"></td>
+        <td style="color:red;">
+          <span *ngIf="bankingOperationsForm.get('account').errors?.required">Se requiere una Cuenta</span>
+        </td>
+      </tr>
+
+      <tr>
+        <th>Cantidad</th>
+        <td><input type="number" formControlName="amount"></td>
+        <td style="color:red;">
+          <span *ngIf="bankingOperationsForm.get('amount').errors?.required">Se requiere una Cantidad</span>
+        </td>
+      </tr>
+
+      <tr>
+        <th>Fecha</th>
+        <td><input type="datetime-local" formControlName="date"></td>
+        <td style="color:red;">
+          <span *ngIf="bankingOperationsForm.get('date').errors?.required">Se requiere una Fecha</span>
+        </td>
+      </tr>
+
+  </table>
+
+  <button mat-raised-button color="primary" (click)="addBankingOperation()">Añadir Operacion</button>
+<hr>
+  <h2>Operaciones Introducidas</h2>
+  <table>
+    <th>Cliente</th>
+    <th>Cuenta</th>
+    <th>Cantidad</th>
+    <th>Fecha</th>
+    <th>Reconciliacion</th>
+
+    <tr *ngFor="let bankingOperation of bankingOperations">
+      <td>{{bankingOperation.customerId}}</td>
+      <td>{{bankingOperation.account}}</td>
+      <td>{{bankingOperation.amount}}</td>
+      <td>{{bankingOperation.date}}</td>
+      <td>{{bankingOperation.reconciliated}}</td>
+  </table>
+  <br>
+  <button mat-raised-button color="primary" (click)="create()">Guardar Operaciones</button>
+
+</form>

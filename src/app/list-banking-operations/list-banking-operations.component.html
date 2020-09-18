@@ -1,1 +1,45 @@
-<p>list-banking-operations works!</p>
+<h1>Listado de Operaciones Bancarias</h1>
+<table *ngIf="bankingOperations" style="border: 1px solid"
+      mat-table [dataSource]="bankingOperations" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let bankingOperation"> {{bankingOperation.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="customerId">
+    <th mat-header-cell *matHeaderCellDef> Id Cliente </th>
+    <td mat-cell *matCellDef="let bankingOperation"> {{bankingOperation.customerId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="account">
+    <th mat-header-cell *matHeaderCellDef> Cuenta </th>
+    <td mat-cell *matCellDef="let bankingOperation"> {{bankingOperation.account}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+    <td mat-cell *matCellDef="let bankingOperation">{{bankingOperation.amount | currency}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Fecha </th>
+    <td mat-cell *matCellDef="let bankingOperation"> {{bankingOperation.date | date:'long'}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="isReconciliated">
+    <th mat-header-cell *matHeaderCellDef> Conciliado </th>
+    <td mat-cell *matCellDef="let bankingOperation"> {{bankingOperation.reconciliated | reconciliated}} </td>
+  </ng-container>
+
+<!--   <ng-container matColumnDef="enlaces">
+    <th mat-header-cell *matHeaderCellDef> Crear Pedido </th>
+    <td mat-cell *matCellDef="let bankingOperation">
+      <a [routerLink]="['/alta-pedidos',cliente.dni]">Crear pedido</a> </td>
+  </ng-container> -->
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

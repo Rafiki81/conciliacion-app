@@ -17,24 +17,27 @@ export class BankingOperationService {
   getReconciliated(isReconciliated: boolean): Observable<BankingOperation[]>{
 
     let searchParams = new HttpParams();
-    searchParams = searchParams.append('isReconciliated', 'true');
+    searchParams = searchParams.append('isReconciliated', 'yes');
 
-    return this.http.get<BankingOperation[]>(urlBase + 'bankingOperations?isReconciliated=' + isReconciliated);
+    return this.http.get<BankingOperation[]>(urlBase + 'bankingOperations?isReconciliated=' + searchParams);
 
   }
 
   getNonReconciliated(isReconciliated: boolean): Observable<BankingOperation[]>{
 
   let searchParams = new HttpParams();
-  searchParams = searchParams.append('isReconciliated', 'false');
+  searchParams = searchParams.append('isReconciliated', 'no');
 
-  return this.http.get<BankingOperation[]>(urlBase + 'bankingOperations?isReconciliated=' + isReconciliated);
+  return this.http.get<BankingOperation[]>(urlBase + 'bankingOperations?isReconciliated=' + searchParams);
 
   }
 
   getAll(): Observable<BankingOperation[]>{
 
-    return this.http.get<BankingOperation[]>(urlBase + 'bankingOperations');
+    let searchParams = new HttpParams();
+    searchParams = searchParams.append('isReconciliated', '');
+
+    return this.http.get<BankingOperation[]>(urlBase + 'bankingOperations?isReconciliated=' + searchParams);
 
   }
 

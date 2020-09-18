@@ -9,16 +9,21 @@ import { CreateBankingOperationsComponent } from './create-banking-operations/cr
 import { ListBankingOperationsComponent } from './list-banking-operations/list-banking-operations.component';
 import { ReconciliateBankingOperationsComponent } from './reconciliate-banking-operations/reconciliate-banking-operations.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { HomeComponent } from './home/home.component';
+import { ReconciliatedPipe } from './pipes/reconciliated.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateBankingOperationsComponent,
     ListBankingOperationsComponent,
-    ReconciliateBankingOperationsComponent
+    ReconciliateBankingOperationsComponent,
+    HomeComponent,
+    ReconciliatedPipe
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     BrowserAnimationsModule,
     MatButtonModule,
     MatTableModule,
-    MatTabsModule
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
